@@ -1,4 +1,5 @@
-﻿using Core.Persistence.Paging;
+﻿using Core.Persistence.Dynamic;
+using Core.Persistence.Paging;
 using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,7 @@ public interface IRepository<TEntity,TEntityId>: IQueryable<TEntity>  where TEnt
         CancellationToken cancellationToken = default);
 
     Paginate<TEntity> GetListByDynamic(
-       // DynamicQuery dynamic,
+        DynamicQuery dynamic,
         Expression<Func<TEntity, bool>>? predicate = null,
         Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
         Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,
