@@ -49,8 +49,8 @@ public interface IRepository<TEntity,TEntityId>: IQuery<TEntity>  where TEntity 
     TEntity Add(TEntity entity);
     ICollection<TEntity> AddRange(ICollection<TEntity> entity);
     TEntity Update(TEntity entity);
-    ICollection<TEntity>UpdateRangeAsync(ICollection<TEntity> entity);
-    TEntity DeleteAsync(TEntity entity, bool permanent = false);
+    ICollection<TEntity>UpdateRange(ICollection<TEntity> entity);
+    TEntity Delete(TEntity entity, bool permanent = false);
 
-    ICollection<TEntity> DeleteRangeAsync(ICollection<TEntity> entity, bool permanent = false);
+    ICollection<TEntity> DeleteRange(ICollection<TEntity> entity, bool permanent = false);
 }

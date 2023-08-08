@@ -271,17 +271,17 @@ public class EfRepositoryBase<TEntity, TEntityId, TContext>:
         throw new NotImplementedException();
     }
 
-    ICollection<TEntity> IRepository<TEntity, TEntityId>.UpdateRangeAsync(ICollection<TEntity> entity)
+    ICollection<TEntity> IRepository<TEntity, TEntityId>.UpdateRange(ICollection<TEntity> entity)
     {
         throw new NotImplementedException();
     }
 
-    TEntity IRepository<TEntity, TEntityId>.DeleteAsync(TEntity entity, bool permanent)
+    TEntity IRepository<TEntity, TEntityId>.Delete(TEntity entity, bool permanent)
     {
         throw new NotImplementedException();
     }
 
-    ICollection<TEntity> IRepository<TEntity, TEntityId>.DeleteRangeAsync(ICollection<TEntity> entity, bool permanent)
+    ICollection<TEntity> IRepository<TEntity, TEntityId>.DeleteRange(ICollection<TEntity> entity, bool permanent)
     {
         throw new NotImplementedException();
     }
