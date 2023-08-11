@@ -13,7 +13,26 @@ builder.Services.AddPersistenceServices(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("AllowAll", builder =>
+//    {
+//        builder.AllowAnyOrigin()
+//            .AllowAnyMethod()
+//            .AllowAnyHeader();
+//    });
+//});
+
+//builder.Host.ConfigureAppConfiguration((hostingContext, config) =>
+//{
+//    config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+//    config.AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", optional: true, reloadOnChange: true);
+//    config.AddEnvironmentVariables();
+//});
+
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -22,10 +41,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-if (app.Environment.IsProduction())
-    app.ConfigureCustomExceptionMiddleware();
+//if (app.Environment.IsProduction())
+app.ConfigureCustomExceptionMiddleware();
 
 app.UseHttpsRedirection();
+
+//app.UseCors("AllowAll");
 
 app.UseAuthorization();
 
